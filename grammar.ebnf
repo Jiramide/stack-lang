@@ -1,0 +1,46 @@
+(* Numbers *)
+digit = ? all digits ? ;
+sign
+  = "+"
+  | "-" ;
+
+natural = digit , { digit } ;
+integer = [ sign ] , natural ;
+decimal = integer , [ "." , natural ] ;
+number = decimal , [ "e" , decimal ] ;
+
+(* Strings *)
+char = ? all characters ? ;
+string = '"' , { char } , '"' ;
+
+(* Booleans *)
+bool
+  = "False"
+  | "True" ;
+
+(* Language constructs *)
+identifier symbol = char - "{" - "}" ;
+identifier = identifier symbol - digit , { identifier symbol } ;
+literal
+  = number
+  | string
+  | bool
+  | procedure ;
+
+value
+  = identifier
+  | literal ;
+
+assignment = "->" , identifier ;
+term
+  = value
+  | assignment
+  | conditional ;
+
+body = { term } ;
+conditional = "? (" , body , ") | (" , body , ")" ;
+
+(* Function types *)
+procedure
+  = "{" , body , "}"
+  | "\" , identifier ;
