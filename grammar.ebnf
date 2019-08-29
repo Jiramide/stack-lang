@@ -34,11 +34,9 @@ value
 assignment = "->" , identifier ;
 term
   = value
-  | assignment
-  | conditional ;
+  | assignment ;
 
 body = { term } ;
-conditional = "? (" , body , ") | (" , body , ")" ;
 
 (* Function types *)
 procedure
