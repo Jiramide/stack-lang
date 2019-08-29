@@ -2,7 +2,9 @@
 
 enum token_type
 {
-
+  number, string, boolean,
+  procedure,
+  identifier, assignment
 }
 
 typedef struct
