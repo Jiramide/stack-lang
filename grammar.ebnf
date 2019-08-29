@@ -42,3 +42,6 @@ body = { term } ;
 procedure
   = "{" , body , "}"
   | "\" , identifier ;
+
+(* Program *)
+program = body ;
